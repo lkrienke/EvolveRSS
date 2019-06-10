@@ -26,8 +26,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/title"
-            tools:text="Test title"
-            tools:textSize="@dimen/title" />
+            android:textSize="@dimen/title"
+            tools:text="Test title" />
 
         <TextView
             android:id="@+id/cell_description"
@@ -36,8 +36,8 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/description"
-            tools:text="long description wowowowow omg what a long description I love it amazing this is the greatest wow what if the description is super long what will we do"
-            tools:textSize="@dimen/description" />
+            android:textSize="@dimen/description"
+            tools:text="long description wowowowow omg what a long description I love it amazing this is the greatest wow what if the description is super long what will we do" />
 
     </LinearLayout>
 
