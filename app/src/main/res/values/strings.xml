@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EvolveRSS</string>
+    <string name="espn_base_url">https://www.espn.com/espn/rss</string>
 </resources>
