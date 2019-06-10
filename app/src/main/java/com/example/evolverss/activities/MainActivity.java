@@ -1,22 +1,29 @@
 package com.example.evolverss.activities;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 
 import com.example.evolverss.R;
 import com.example.evolverss.api.ESPNService;
 
-import retrofit2.Converter;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
     ESPNService espnService;
 
+    @BindView(R.id.rv_news)
+    RecyclerView rvNews;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
     }
 
     private void initAPI(){
