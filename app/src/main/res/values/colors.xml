@@ -5,6 +5,6 @@
     <color name="primary_dark">#00574B</color>
     <color name="accent">#D81B60</color>
 
-    <color name="title">#000000de</color>
-    <color name="description">#00000099</color>
+    <color name="title">#de000000</color>
+    <color name="description">#99000000</color>
 </resources>
