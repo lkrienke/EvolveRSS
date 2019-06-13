@@ -24,6 +24,9 @@ public class NewsItemViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.cell_image)
     ImageView image;
 
+    String link;
+    String imageLink;
+
     private NewsItemViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
@@ -38,6 +41,8 @@ public class NewsItemViewHolder extends RecyclerView.ViewHolder {
         Item item = (Item) newsAdapterItem.getObject();
         title.setText(item.getTitle());
         description.setText(item.getDescription());
+        link = item.getLink();
+        imageLink = item.getImage();
 //        todo: image processing bitch!!!!
     }
 }

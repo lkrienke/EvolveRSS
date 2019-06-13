@@ -4,21 +4,10 @@ import com.example.evolverss.model.Feed;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ESPNService {
 
-    @GET("/rpm/news")
-    Call<Feed> listRPM();
-
-    @GET("/mlb/news")
-    Call<Feed> listMLB();
-
-    @GET("/nhl/news")
-    Call<Feed> listNHL();
-
-    @GET("/nba/news")
-    Call<Feed> listNBA();
-
-    @GET("/nfl/news")
-    Call<Feed> listNFL();
+    @GET("{category}/news")
+    Call<Feed> getNews(@Path("category") String category);
 }
