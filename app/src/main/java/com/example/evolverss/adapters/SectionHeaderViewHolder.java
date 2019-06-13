@@ -5,10 +5,13 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.evolverss.R;
+import com.example.evolverss.model.Channel;
+import com.example.evolverss.model.Item;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +19,7 @@ import butterknife.ButterKnife;
 public class SectionHeaderViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.section_title)
-    String title;
+    TextView title;
 
     private SectionHeaderViewHolder(View itemView) {
         super(itemView);
@@ -28,8 +31,9 @@ public class SectionHeaderViewHolder extends RecyclerView.ViewHolder {
                 .inflate(R.layout.item_section_header, viewGroup, false));
     }
 
-    public void onBind(NewsAdapterItem item) {
-
+    public void onBind(NewsAdapterItem newsAdapterItem) {
+        Channel channel = (Channel) newsAdapterItem.getObject();
+        title.setText(channel.getTitle());
     }
 
 }

@@ -51,4 +51,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public ArrayList<NewsAdapterItem> getItems() {
         return adapterItems;
     }
+
+    public void setItems(ArrayList<NewsAdapterItem> adapterItems) {
+        this.adapterItems = adapterItems;
+    }
 }
