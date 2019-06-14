@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.evolverss.R;
 import com.example.evolverss.model.Item;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +43,12 @@ public class NewsItemViewHolder extends RecyclerView.ViewHolder {
         title.setText(item.getTitle());
         description.setText(item.getDescription());
         link = item.getLink();
+
         imageLink = item.getImage();
-//        todo: image processing bitch!!!!
+        Picasso.get()
+                .load(imageLink)
+                .placeholder(R.drawable.ic_broken_image_black_24dp)
+                .error(R.drawable.ic_broken_image_black_24dp)
+                .into(image);
     }
 }
