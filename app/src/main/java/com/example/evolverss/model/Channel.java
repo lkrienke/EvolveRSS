@@ -1,11 +1,11 @@
 package com.example.evolverss.model;
 
+import org.simpleframework.xml.Default;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Root(name = "channel", strict = false)
 public class Channel {

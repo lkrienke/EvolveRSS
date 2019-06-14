@@ -1,20 +1,18 @@
 package com.example.evolverss.model;
 
+import org.simpleframework.xml.Default;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
 @Root(name = "item", strict = false)
+@Default(required = false)
 public class Item implements Serializable {
 
-    @Element(name = "title")
     private String title;
-    @Element(name = "description")
     private String description;
-    @Element(name = "image")
     private String image;
-    @Element(name = "link")
     private String link;
 
     public Item() {
