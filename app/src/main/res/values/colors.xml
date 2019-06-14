@@ -8,4 +8,9 @@
     <color name="title">#de000000</color>
     <color name="description">#99000000</color>
     <color name="divider">#1f000000</color>
+
+    <!--Selector-->
+    <color name="item_selected">#326a6a6a</color>
+    <color name="white">#fff</color>
+
 </resources>
