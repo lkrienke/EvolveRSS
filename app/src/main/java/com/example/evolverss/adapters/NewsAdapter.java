@@ -9,6 +9,15 @@ import java.util.ArrayList;
 public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<NewsAdapterItem> adapterItems = new ArrayList<>();
+    private final NewsAdapterListener listener;
+
+    public interface NewsAdapterListener {
+        void onNewsCellClicked(String link);
+    }
+
+    public NewsAdapter(NewsAdapterListener listener) {
+        this.listener = listener;
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,7 +37,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         switch (holder.getItemViewType()) {
             case NewsAdapterItem.NEWS_ITEM:
-                ((NewsItemViewHolder) holder).onBind(currentItem);
+                ((NewsItemViewHolder) holder).onBind(currentItem, listener);
                 break;
             case NewsAdapterItem.SECTION_HEADER:
                 ((SectionHeaderViewHolder) holder).onBind(currentItem);

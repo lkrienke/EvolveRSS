@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.example.evolverss.R;
@@ -15,9 +16,6 @@ import com.example.evolverss.api.ESPNService;
 import com.example.evolverss.model.Channel;
 import com.example.evolverss.model.Feed;
 import com.example.evolverss.model.Item;
-
-
-import org.reactivestreams.Subscriber;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,24 +27,33 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String TAG = this.getClass().getSimpleName();
     ESPNService espnService;
     ArrayList<NewsAdapterItem> newsAdapterItems = new ArrayList<>();
 
     @BindView(R.id.rv_news)
     RecyclerView rvNews;
+    @BindView(R.id.wv_link)
+    WebView wvLink;
 
     private NewsAdapter newsAdapter;
     private Context application;
+
+    private final NewsAdapter.NewsAdapterListener listener = new NewsAdapter.NewsAdapterListener() {
+        @Override
+        public void onNewsCellClicked(String link) {
+            if(link == null) {
+                Toast.makeText(application, "No link provided", Toast.LENGTH_LONG).show();
+            } else {
+                wvLink.loadUrl(link);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         this.application = getApplicationContext();
 
 
-        newsAdapter = new NewsAdapter();
+        newsAdapter = new NewsAdapter(listener);
         newsAdapter.setItems(newsAdapterItems);
 
         rvNews.setLayoutManager(new LinearLayoutManager(this));

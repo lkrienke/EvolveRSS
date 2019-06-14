@@ -41,11 +41,13 @@ public class NewsItemViewHolder extends RecyclerView.ViewHolder {
                 .inflate(R.layout.item_news_cell, viewGroup, false));
     }
 
-    public void onBind(NewsAdapterItem newsAdapterItem) {
+    public void onBind(NewsAdapterItem newsAdapterItem, NewsAdapter.NewsAdapterListener listener) {
         Item item = (Item) newsAdapterItem.getObject();
         title.setText(item.getTitle());
         description.setText(item.getDescription());
+
         link = item.getLink();
+        llNewsCell.setOnClickListener(v -> listener.onNewsCellClicked(link));
 
         imageLink = item.getImage();
         Picasso.get()
