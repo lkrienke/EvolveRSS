@@ -7,4 +7,5 @@
 
     <color name="title">#de000000</color>
     <color name="description">#99000000</color>
+    <color name="divider">#1f000000</color>
 </resources>

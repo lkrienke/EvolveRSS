@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<String> categories = Arrays.asList("rpm", "mlb", "nhl", "nba", "nfl");
 
-        for (String c : categories){
+        for (String c : categories) {
             callRSS(c);
         }
     }
