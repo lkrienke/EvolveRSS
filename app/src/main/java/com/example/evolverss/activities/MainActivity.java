@@ -55,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         this.application = getApplicationContext();
 
-        populateAdapterItems();
 
         newsAdapter = new NewsAdapter();
         newsAdapter.setItems(newsAdapterItems);
 
         rvNews.setLayoutManager(new LinearLayoutManager(this));
         rvNews.setAdapter(newsAdapter);
+
+        populateAdapterItems();
     }
 
     private void initAPI() {
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onComplete() {
+                        rvNews.getAdapter().notifyDataSetChanged();
                     }
                 });
     }
